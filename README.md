@@ -6,6 +6,7 @@
 2. [Requirements](#requirements)
 3. [Usage](#usage)
 4. [NRPE/Nagios configuration](#NRPE/Nagios configuration)
+5. [Development](#development)
 
 ## Overview
 
@@ -74,3 +75,12 @@ Client side : /etc/nagios/nrpe.d/mongo.cfg
  # SERVICE
  command[check_mongodb_status]        = /usr/lib/nagios/plugins/check_mongodb.bash -t replicaset -h localhost -u username -p password -c rs.status
  ```
+## Development
+
+Feel free to contribute on GitHub.
+    ╚⊙ ⊙╝
+ ╚═(███)═╝
+╚═(███)═╝
+╚═(███)═╝
+╚═(███)═╝
+ ╚═(███)═╝
