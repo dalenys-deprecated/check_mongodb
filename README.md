@@ -56,7 +56,7 @@ Feel free to contribute, and add your own checks.
  NOK : Resident memory used : 96%, readahead probably too high
  ```
 
-## NRPE/Nagios configuration
+## Nagios configuration
 
 Nagios side : /etc/nagios/databases/database1-1/services.cfg
 
