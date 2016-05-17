@@ -78,9 +78,14 @@ Client side : /etc/nagios/nrpe.d/mongo.cfg
 ## Development
 
 Feel free to contribute on GitHub.
+
+```
     ╚⊙ ⊙╝
+  ╚═(███)═╝
  ╚═(███)═╝
 ╚═(███)═╝
-╚═(███)═╝
-╚═(███)═╝
  ╚═(███)═╝
+  ╚═(███)═╝
+   ╚═(███)═╝
+```
+

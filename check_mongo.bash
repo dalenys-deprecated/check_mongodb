@@ -51,7 +51,7 @@ debug_msg() {
     fi
 }
 
-# check is type is "replicaset"
+# check if type is "replicaset"
 is_rs() {
     if [ "${TYPE}" != "replicaset" ]
     then
