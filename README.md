@@ -10,7 +10,7 @@
 
 ## Overview
 
-This script is just another NRPE script, to check the state of MongoDB.
+This script is just another nagios script, to check the state of MongoDB.
 It's written in Bash, to avoid any dependencies with PyMongo, venv or even Python.
 Why ? Because in a perfect world, your production database should be as lightweight as possible, right ? ;)
 
