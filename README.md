@@ -1,4 +1,4 @@
-# check-mongodb
+# check_mongodb
 
 #### Table of Contents
 
