@@ -5,7 +5,7 @@
 1. [Overview](#overview)
 2. [Requirements](#requirements)
 3. [Usage](#usage)
-4. [NRPE/Nagios configuration](#NRPE/Nagios configuration)
+4. [Nagios configuration](#Nagios configuration)
 5. [Development](#development)
 
 ## Overview
