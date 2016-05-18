@@ -9,4 +9,4 @@ addons:
    - shellcheck
 
 script:
-- shellcheck *.sh
+- shellcheck *.bash
