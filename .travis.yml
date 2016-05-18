@@ -1,0 +1,8 @@
+language: bash
+sudo: falseaddons:
+ apt:
+   sources:
+   - debian-sid
+   packages:
+   - shellcheckscript:
+- shellcheck *.sh
