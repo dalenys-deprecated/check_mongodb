@@ -24,6 +24,16 @@ Basically, one check is one function, keep it simple, stupid.
 - awk
 - mongodb-org-shell
 
+Debian / Ubuntu (needs MongoDB repository : https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) :
+ ```bash
+ $ apt-get install mongodb-org-shell
+ ```
+
+Red Hat :
+ ```bash
+ $ sudo yum install -y mongodb-org
+ ```
+
 ## Usage
 
  ```bash
