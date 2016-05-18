@@ -16,8 +16,7 @@
 
 #set -x
 
-REVISION="0.1"
-PROGNAME=`basename $0`
+PROGNAME=$(basename "$0")
 VERBOSE=0
 
 AUTH=0
@@ -96,13 +95,13 @@ check_mem_resident() {
 
     RESIDENT=${CMD_OUTPUT%%.*}
     PHY=$(free -m|grep Mem|awk '{print $2}')
-    RESIDENT_USED=$(echo ${RESIDENT} ${PHY}|awk '{print $1 *100 / $2}')
+    RESIDENT_USED=$(echo "${RESIDENT}" "${PHY}"|awk '{print $1 *100 / $2}')
     RESIDENT_USED="${RESIDENT_USED%.*}"
 
-    if [ ${RESIDENT_USED} -lt ${LIMIT} ]
+    if [ "${RESIDENT_USED}" -lt "${LIMIT}" ]
     then
         echo "NOK : Resident memory used : ${RESIDENT_USED}%, readahead probably too high"
-	return ${STATE_CRITICAL}
+	return ${STATE_WARNING}
     else
         echo "OK: Resident memory used : ${RESIDENT_USED}%"
 	return ${STATE_OK}
@@ -121,7 +120,7 @@ check_rs_lag() {
     HOUR=$(echo -ne $CMD_OUTPUT|awk '{print $13}')
     HOUR=${HOUR#(*}
 
-    if [ ${HOUR} -ne 0 ]
+    if [ "${HOUR}" -ne 0 ]
     then
         echo "NOK : Lag replication is ${HOUR} hr(s)"
 	return ${STATE_CRITICAL}
@@ -143,7 +142,7 @@ check_rs_count() {
     mongo_query "rs.status().members"
 
     MY_STATE=${CMD_OUTPUT}
-    NB_MEMBER=$(echo "$MY_STATE"|grep "_id"|wc -l)
+    NB_MEMBER=$(echo "$MY_STATE"|grep -c "_id")
 
     debug_msg "value of rs.count: ${NB_MEMBER}"
 
@@ -230,7 +229,7 @@ which mongo > /dev/null
 if [ $? -ne 0 ]
 then
     echo "mongo binary not found"
-    exit ${STATE_UNKNOWN}
+    exit ${STATE_DEPENDENT}
 fi
 
 while getopts 't:h:u:p:c:vw:' OPTIONS
