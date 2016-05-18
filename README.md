@@ -29,7 +29,7 @@ Debian / Ubuntu (needs MongoDB repository : https://docs.mongodb.com/manual/tuto
  $ apt-get install mongodb-org-shell
  ```
 
-Red Hat :
+RedHat / Fedora (needs MongoDB repository https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/) :
  ```bash
  $ sudo yum install -y mongodb-org-shell
  ```

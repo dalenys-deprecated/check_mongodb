@@ -6,4 +6,5 @@ addons:
    - debian-sid
    packages:
    - shellcheckscript:
+script:
 - shellcheck *.sh
