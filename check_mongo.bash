@@ -104,7 +104,7 @@ check_mem_resident() {
         echo "NOK : Resident memory used : ${RESIDENT_USED}%, readahead probably too high"
 	return ${STATE_CRITICAL}
     else
-        echo "OK: Resident memory used : ${RESIDENT_USER}%"
+        echo "OK: Resident memory used : ${RESIDENT_USED}%"
 	return ${STATE_OK}
     fi
 }
