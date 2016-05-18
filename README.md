@@ -31,7 +31,7 @@ Debian / Ubuntu (needs MongoDB repository : https://docs.mongodb.com/manual/tuto
 
 Red Hat :
  ```bash
- $ sudo yum install -y mongodb-org
+ $ sudo yum install -y mongodb-org-shell
  ```
 
 ## Usage
