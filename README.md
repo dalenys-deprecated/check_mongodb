@@ -10,7 +10,7 @@
 
 ## Overview
 
-This script is a nagios script, to check the state of MongoDB.
+This script is a nagios plugin, to check the state of MongoDB.
 It's written in Bash, to avoid any dependencies with PyMongo, venv and even Python.
 
 Why ? Because in a perfect world, your production database should be as lightweight as possible, right ? ;)
