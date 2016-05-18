@@ -18,8 +18,6 @@ Why ? Because in a perfect world, your production database should be as lightwei
 The design of the script is quite easy, in order to allow you to contribute with your own needs.  
 Basically, one check is one function, keep it simple, stupid.
 
-Feel free to contribute, and add your own checks !
-
 ## Requirements
 
 - bash
