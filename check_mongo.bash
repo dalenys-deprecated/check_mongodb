@@ -152,7 +152,7 @@ check_rs_count() {
         echo "NOK : total member should be 3, but is : ${NB_MEMBER}"
 	return ${STATE_CRITICAL}
     else
-        echo "OK : number of member should be 3, and is : ${NB_MEMBER}"
+        echo "OK : number of instances should be 3, and is : ${NB_MEMBER}"
 	return ${STATE_OK}
     fi
 
