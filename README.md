@@ -15,7 +15,7 @@ It's written in Bash, to avoid any dependencies with PyMongo, venv and even Pyth
 
 Why ? Because in a perfect world, your production database should be as lightweight as possible, right ? ;)
 
-The design of the script is quite easy, in order to allow you to contribute with your own needs.
+The design of the script is quite easy, in order to allow you to contribute with your own needs.  
 Basically, one check is one function, keep it simple, stupid.
 
 Feel free to contribute, and add your own checks !
