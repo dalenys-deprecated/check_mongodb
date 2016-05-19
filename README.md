@@ -1,4 +1,4 @@
-# check_mongodb
+# check_mongodb ![License][license-img] [![Build Status][build-img]][build-url]
 
 #### Table of Contents
 
@@ -10,13 +10,17 @@
 
 ## Overview
 
-This script is a nagios plugin, to check the state of MongoDB.
-It's written in Bash, to avoid any dependencies with PyMongo, venv and even Python.
+This script is a  nagios plugin, to check the state of  MongoDB. It's written in
+Bash, to avoid any dependencies with PyMongo, venv and even Python.
 
-Why ? Because in a perfect world, your production database should be as lightweight as possible, right ? ;)
+Why  ?  Because in  a  perfect  world, your  production  database  should be  as
+lightweight as possible, right ? ;)
 
-The design of the script is quite easy, in order to allow you to contribute with your own needs.  
-Basically, one check is one function, keep it simple, stupid.
+The design of the script is quite easy, in order to allow you to contribute with
+your own needs. Basically, one check is one function, keep it simple.
+
+Nagios : https://www.nagios.org/
+MongoDB : https://www.mongodb.com/
 
 ## Requirements
 
@@ -24,69 +28,75 @@ Basically, one check is one function, keep it simple, stupid.
 - awk
 - mongodb-org-shell
 
-Debian / Ubuntu (needs MongoDB repository : https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) :
- ```bash
- $ apt-get install mongodb-org-shell
- ```
+### Debian and Ubuntu
 
-RedHat / Fedora (needs MongoDB repository https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/) :
- ```bash
- $ sudo yum install -y mongodb-org-shell
- ```
+You need MongoDB repository : https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+```bash
+$ sudo apt-get install mongodb-org-shell
+```
+
+### RedHat and Fedora
+
+You need MongoDB repository : https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/
+
+```bash
+$ sudo yum install -y mongodb-org-shell
+```
 
 ## Usage
 
- ```bash
- Usage: check_mongo.bash -t [standalone|replicaset] -h [hostname] -c [check_name]
- Optional :
- -u [username]
- -p [password]
- -w [port]
- -v verbose
- 
- Any rs.xxx command has to be associated with -t replicaset
- 
- check_name :
- mem.resident  Check resident memory usage (amount of physical memory being used)
- rs.status     Status of the local node
- rs.count      Count how many member are in the replicaset
- rs.lag        Check replication lag
- ```
+```bash
+Usage: check_mongo.bash -t [standalone|replicaset] -h [hostname] -c [check_name]
+Optional :
+-u [username]
+-p [password]
+-w [port]
+-v verbose
 
- ```bash
- $ /usr/lib/nagios/plugins/check_mongodb.bash -t replicaset -h database1-1.domain -u username -p password -c rs.status
- $ OK - State is PRIMARY
- ```
+Any rs.xxx command has to be associated with -t replicaset
 
- ```bash
- $ /usr/lib/nagios/plugins/check_mongodb.bash -t replicaset -h database1-1.domain -u username -p password -c rs.lag
- $ OK : Lag replication is 0 hr(s)
- ```
+check_name :
+mem.resident  Check resident memory usage (amount of physical memory being used)
+rs.status     Status of the local node
+rs.count      Count how many member are in the replicaset
+rs.lag        Check replication lag
+```
 
- ```bash
- $ ./check_mongo.bash -t standalone -h database1-2 -c mem.resident
- NOK : Resident memory used : 96%, readahead probably too high
- ```
+```bash
+$ /usr/lib/nagios/plugins/check_mongodb.bash -t replicaset -h database1-1.domain -u username -p password -c rs.status
+$ OK - State is PRIMARY
+```
+
+```bash
+$ /usr/lib/nagios/plugins/check_mongodb.bash -t replicaset -h database1-1.domain -u username -p password -c rs.lag
+$ OK : Lag replication is 0 hr(s)
+```
+
+```bash
+$ /usr/lib/nagios/plugins/check_mongo.bash -t standalone -h database1-2 -c mem.resident
+NOK : Resident memory used : 96%, readahead probably too high
+```
 
 ## Nagios configuration
 
-Nagios side : /etc/nagios/databases/database1-1/services.cfg
+Nagios side : /etc/nagios/databases/database1/mongodb.cfg
 
- ```bash
- define service {
-  host_name database1-1
+```
+define service {
+  host_name database1
   service_description Check status of MongoDB in replicaset
   check_command check_nrpe!check_mongodb_status
   use service-1m-24x7-mail
- }
- ```
+}
+```
 
-Client side : /etc/nagios/nrpe.d/mongo.cfg
+Client side : /etc/nagios/nrpe.d/mongodb.cfg
 
- ```bash
- # SERVICE
- command[check_mongodb_status]        = /usr/lib/nagios/plugins/check_mongodb.bash -t replicaset -h localhost -u username -p password -c rs.status
- ```
+```
+command[check_mongodb_status] = /usr/lib/nagios/plugins/check_mongodb.bash -t replicaset -h localhost -u username -p password -c rs.status
+```
+
 ## Development
 
 Feel free to contribute on GitHub.
@@ -101,3 +111,6 @@ Feel free to contribute on GitHub.
    ╚═(███)═╝
 ```
 
+[license-img]: https://img.shields.io/badge/license-ISC-blue.svg
+[build-img]: https://travis-ci.org/dalenys/check_mongodb.svg?branch=master
+[build-url]: https://travis-ci.org/dalenys/check_mongodb
