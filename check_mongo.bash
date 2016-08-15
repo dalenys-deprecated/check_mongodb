@@ -80,7 +80,8 @@ is_port(){
     fi
 }
 
-# Resident memory (physical RAM) should be more than 92% used
+# Resident memory (physical RAM) should be more than 92% used.
+# Specific to MMAPv1 storage engine.
 check_mem_resident() {
     is_auth_given
     is_port
@@ -218,7 +219,7 @@ usage() {
     echo "Any rs.xxx command has to be associated with -t replicaset"
     echo
     echo "check_name :"
-    echo "mem.resident  Check resident memory usage (amount of physical memory being used)"
+    echo "mem.resident  Check resident memory usage (amount of physical memory being used, only for MMAPv1 storage engine)"
     echo "rs.status     Status of the local node"
     echo "rs.count      Count how many member are in the replicaset"
     echo "rs.lag        Check replication lag"
