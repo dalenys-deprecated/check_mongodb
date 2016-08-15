@@ -57,7 +57,7 @@ Optional :
 Any rs.xxx command has to be associated with -t replicaset
 
 check_name :
-mem.resident  Check resident memory usage (amount of physical memory being used)
+mem.resident  Check resident memory usage (amount of physical memory being used, only for MMAPv1 storage engine)
 rs.status     Status of the local node
 rs.count      Count how many member are in the replicaset
 rs.lag        Check replication lag
