@@ -169,7 +169,7 @@ check_rs_status() {
 
     MY_STATE=${CMD_OUTPUT}
 
-    if [ ${MY_STATE} -eq 2 ] || [ ${MY_STATE} -eq 1 ] || [ ${MY_STATE} -eq 7 ]
+    if (( "${MY_STATE}" == 2 )) || (( "${MY_STATE}" == 1 )) || (( "${MY_STATE}" == 7 ))
     then
         echo "OK - State is ${MONGO_STATUS[${MY_STATE}]}"
 	return ${STATE_OK}
